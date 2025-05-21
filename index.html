@@ -7,9 +7,10 @@
 </head>
 <body>
   <header>
-    <div class="logo">🎬 Cineverse</div>
-   
-  </header>
+      <nav class="header-content">
+        <a href="cineverse.html" class="logo">🎬 Cineverse</a>
+      </nav>
+    </header>
 
   <main>
     <div class="login-container">
@@ -39,6 +40,11 @@
         mensagem.style.color = "#ffcccc";
         mensagem.textContent = "Nome ou senha incorretos.";
       }
+
+      // Redirecionar após 1 segundo
+      setTimeout(() => {
+        window.location.href = "cineverse.html";
+      }, 1000);
     }
   </script>
 </body>
