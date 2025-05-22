@@ -1,79 +1,406 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Séries | Cineverse</title>
-  <link rel="stylesheet" href="Assets/css/style.css" />
-</head>
-<body>
-  <header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Séries | Cineverse</title>
+    <link rel="stylesheet" href="Assets/css/style.css" />
+  </head>
+  <body>
+    <header>
       <nav class="header-content">
         <a href="cineverse.html" class="logo">🎬 Cineverse</a>
         <div class="links">
           <a href="filmes.html">Filmes</a>
           <a href="series.html">Séries</a>
         </div>
+        <div class="usuario">
+          <div class="icone-usuario" onclick="toggleMenu()">
+            <span>👤</span>
+          </div>
+          <div class="menu-suspenso" id="menuSuspenso">
+            <a href="perfil.html">Perfil</a>
+            <a href="config.html">Configurações</a>
+            <a href="index.html">Encerrar sessão</a>
+          </div>
+        </div>
       </nav>
-  </header>
+    </header>
 
-  <section>
-    <h2>📺 Séries por Gênero</h2>
-    <nav>
-      <a href="#sci-fi">Ficção Científica</a>
-      <a href="#comedia">Comédia</a>
-      <a href="#drama">Drama</a>
-    </nav>
+    <!-- Slider de Destaque -->
+    <section id="slider" class="slider">
+      <div class="slider-content">
+        <h1 id="slider-title">Duna: Parte 2</h1>
+        <button onclick="window.location.href='#'">Assistir agora</button>
+      </div>
+    </section>
 
-    <!-- Ficção Científica -->
-    <div id="sci-fi">
-      <h3>👾 Ficção Científica</h3>
-      <div class="carrossel">
-        <div class="filme">
-          <img src="https://m.media-amazon.com/images/M/MV5BMjg2NmM0MTEtYWY2Yy00NmFlLTllNTMtMjVkZjEwMGVlNzdjXkEyXkFqcGc@._V1_.jpg" alt="Stranger Things" />
-          <div class="filme-info">
-            <strong>Stranger Things</strong><br />
-            14 anos • 4 Temporadas • 34 Episódios<br />
-            🎭 Atores: Millie Bobby Brown, Finn Wolfhard<br />
-            🎬 Irmãos Duffer
-          </div>
+    <!-- Lançamentos -->
+    <section>
+      <h2>Genero 1</h2>
+      <div class="carrossel-container">
+        <button class="seta setaEsquerda" onclick="scrollCarrossel(this, -1)">
+          &#10094;
+        </button>
+        <div class="carrossel">
+          <!-- FILMES AQUI -->
+        </div>
+        <button class="seta setaDireita" onclick="scrollCarrossel(this, 1)">
+          &#10095;
+        </button>
+      </div>
+    </section>
+    <!-- Oscar -->
+    <section>
+      <h2>Genero 2</h2>
+      <div class="carrossel-container">
+        <button class="seta setaEsquerda" onclick="scrollCarrossel(this, -1)">
+          &#10094;
+        </button>
+        <div class="carrossel">
+          <!-- Seus filmes aqui -->
+        </div>
+        <button class="seta setaDireita" onclick="scrollCarrossel(this, 1)">
+          &#10095;
+        </button>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="fecharModal()">&times;</span>
+        <img id="modal-img" src="" alt="Capa do Filme" />
+        <h2 id="modal-titulo"></h2>
+        <p id="modal-info"></p>
+        <p id="modal-sinopse"></p>
+        <div class="botoes">
+          <a id="link-assistir" href="#" target="_blank">🎬 Assistir</a>
+          <a id="link-trailer" href="#" target="_blank">📺 Ver trailer</a>
         </div>
       </div>
     </div>
 
-    <!-- Comédia -->
-    <div id="comedia">
-      <h3>😂 Comédia</h3>
-      <div class="carrossel">
-        <div class="filme">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaOMnwCOF6Ca22-F50Gpc1katPZIko9iRTp02gDYpQLnmsHS05Y-_TtdxulOIEEx1ouury93J9lH4Z7EPpOiu_bnmF7IywmpjJey0CkQ" alt="Brooklyn Nine-Nine" />
-          <div class="filme-info">
-            <strong>Brooklyn Nine-Nine</strong><br />
-            12 anos • 8 Temporadas • 153 Episódios<br />
-            🎭 Atores: Andy Samberg, Terry Crews<br />
-            🎬 Criador: Dan Goor
-          </div>
-        </div>
-      </div>
-    </div>
+    <footer>&copy; 2025 Cineverse. Todos os direitos reservados.</footer>
 
-    <!-- Drama -->
-    <div id="drama">
-      <h3>💔 Drama</h3>
-      <div class="carrossel">
-        <div class="filme">
-          <img src="https://m.media-amazon.com/images/M/MV5BYWI3ODJlMzktY2U5NC00ZjdlLWE1MGItNWQxZDk3NWNjN2RhXkEyXkFqcGc@._V1_.jpg" alt="The Last of Us" />
-          <div class="filme-info">
-            <strong>The Last of Us</strong><br />
-            16 anos • 1 Temporada • 9 Episódios<br />
-            🎭 Atores: Pedro Pascal, Bella Ramsey<br />
-            🎬 Criadores: Craig Mazin, Neil Druckmann
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <script>
+      const destaques = [
+        {
+          titulo: "Duna: Parte 2",
+          imagem:
+            "https://ingresso-a.akamaihd.net/prd/img/movie/duna-parte-2/04a173f7-6d58-49d3-91de-20f6a07e9513.webp",
+          link: "#",
+        },
+        {
+          titulo: "Oppenheimer",
+          imagem:
+            "https://www.thebanner.org/sites/default/files/styles/article_detail_header/public/2023-08/MM-1207%20Oppenheimer.jpg?itok=0U-jOPJC",
+          link: "#",
+        },
+        {
+          titulo: "Tudo em Todo Lugar ao Mesmo Tempo",
+          imagem:
+            "https://resenhandosonhos.com/wp-content/uploads/2023/01/tudo-em-todo-o-lugar-ao-mesmo-tempo-capa-920x530.png",
+          link: "#",
+        },
+      ];
+      const filmesLancamento = [
+        {
+          titulo: "Duna: Parte 2",
+          ano: 2024,
+          classificacao: "14 anos",
+          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
+          imagem:
+            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
+        },
+        {
+          titulo: "Duna: Parte 2",
+          ano: 2024,
+          classificacao: "14 anos",
+          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
+          imagem:
+            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
+        },
+        {
+          titulo: "Duna: Parte 2",
+          ano: 2024,
+          classificacao: "14 anos",
+          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
+          imagem:
+            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
+        },
+        {
+          titulo: "Duna: Parte 2",
+          ano: 2024,
+          classificacao: "14 anos",
+          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
+          imagem:
+            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
+        },
+        {
+          titulo: "Duna: Parte 2",
+          ano: 2024,
+          classificacao: "14 anos",
+          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
+          imagem:
+            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
+        },
+        {
+          titulo: "Duna: Parte 2",
+          ano: 2024,
+          classificacao: "14 anos",
+          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
+          imagem:
+            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
+        },
+        {
+          titulo: "Barbie",
+          ano: 2023,
+          classificacao: "10 anos",
+          sinopse:
+            "Barbie embarca em uma jornada de autodescoberta no mundo real.",
+          imagem:
+            "https://upload.wikimedia.org/wikipedia/pt/8/82/Barbie_%282023%29.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=pBk4NYhWNMM",
+        },
+        {
+          titulo: "Avatar 2",
+          ano: 2022,
+          classificacao: "12 anos",
+          sinopse: "Jake Sully vive com sua nova família e enfrenta ameaças.",
+          imagem:
+            "https://br.web.img3.acsta.net/pictures/22/05/09/16/16/3197518.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=d9MyW72ELq0",
+        },
+        {
+          titulo: "Wonka",
+          ano: 2023,
+          classificacao: "Livre",
+          sinopse: "A origem do excêntrico Willy Wonka e sua primeira fábrica.",
+          imagem:
+            "https://m.media-amazon.com/images/I/81mxun+6pEL._AC_UF894,1000_QL80_.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=otNh9bTjXWg",
+        },
+        {
+          titulo: "Godzilla e Kong",
+          ano: 2024,
+          classificacao: "12 anos",
+          sinopse: "Os dois titãs unem forças contra uma nova ameaça.",
+          imagem:
+            "https://br.web.img2.acsta.net/pictures/24/02/14/17/29/5748268.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=qqrpMRDuPfc",
+        },
+      ];
+      const filmesOscar = [
+        {
+          titulo: "Oppenheimer",
+          ano: 2023,
+          classificacao: "16 anos",
+          sinopse: "A história do criador da bomba atômica.",
+          imagem:
+            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
+        },
+        {
+          titulo: "Duna: Parte 2",
+          ano: 2024,
+          classificacao: "14 anos",
+          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
+          imagem:
+            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
+        },
+        {
+          titulo: "Duna: Parte 2",
+          ano: 2024,
+          classificacao: "14 anos",
+          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
+          imagem:
+            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
+        },
+        {
+          titulo: "Duna: Parte 2",
+          ano: 2024,
+          classificacao: "14 anos",
+          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
+          imagem:
+            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
+        },
+        {
+          titulo: "Duna: Parte 2",
+          ano: 2024,
+          classificacao: "14 anos",
+          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
+          imagem:
+            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
+        },
+        {
+          titulo: "Duna: Parte 2",
+          ano: 2024,
+          classificacao: "14 anos",
+          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
+          imagem:
+            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
+        },
+        {
+          titulo: "Duna: Parte 2",
+          ano: 2024,
+          classificacao: "14 anos",
+          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
+          imagem:
+            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
+        },
+        {
+          titulo: "Duna: Parte 2",
+          ano: 2024,
+          classificacao: "14 anos",
+          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
+          imagem:
+            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
+        },
+        {
+          titulo: "Tudo em Todo Lugar",
+          ano: 2022,
+          classificacao: "14 anos",
+          sinopse:
+            "Uma mulher é jogada em um multiverso caótico para salvar tudo.",
+          imagem:
+            "https://m.media-amazon.com/images/I/91-UbEIOgeL._AC_UF1000,1000_QL80_.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=wxN1T1uxQ2g",
+        },
+        {
+          titulo: "Parasita",
+          ano: 2019,
+          classificacao: "16 anos",
+          sinopse:
+            "Uma crítica social em forma de suspense sobre desigualdade.",
+          imagem:
+            "https://upload.wikimedia.org/wikipedia/pt/4/49/Parasite_2019_poster.jpg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=5xH0HfJHsaY",
+        },
+        {
+          titulo: "Green Book",
+          ano: 2018,
+          classificacao: "12 anos",
+          sinopse:
+            "A improvável amizade entre um motorista e um pianista negro.",
+          imagem:
+            "https://upload.wikimedia.org/wikipedia/pt/thumb/5/5e/Green_Book_%28filme%29.png/250px-Green_Book_%28filme%29.png",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=QkZxoko_HC0",
+        },
+      ];
 
-  <footer>&copy; 2025 Cineverse. Todos os direitos reservados.</footer>
-</body>
+      const slider = document.getElementById("slider");
+      const sliderTitle = document.getElementById("slider-title");
+      let slideAtual = 0;
+
+      slider.style.backgroundImage = `url('${destaques[0].imagem}')`;
+      sliderTitle.textContent = destaques[0].titulo;
+
+      function trocarSlide() {
+        slideAtual = (slideAtual + 1) % destaques.length;
+        const destaque = destaques[slideAtual];
+        slider.style.backgroundImage = `url('${destaque.imagem}')`;
+        sliderTitle.textContent = destaque.titulo;
+      }
+
+      setInterval(trocarSlide, 5000); 
+
+      function toggleMenu() {
+        const menu = document.getElementById("menuSuspenso");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+      }
+
+      window.addEventListener("click", function (event) {
+        const menu = document.getElementById("menuSuspenso");
+        const icon = document.querySelector(".icone-usuario");
+
+        if (!icon.contains(event.target) && !menu.contains(event.target)) {
+          menu.style.display = "none";
+        }
+      });
+
+      function abrirModal(filme) {
+        document.getElementById("modal-img").src = filme.imagem;
+        document.getElementById("modal-titulo").textContent = filme.titulo;
+        document.getElementById(
+          "modal-info"
+        ).textContent = `${filme.ano} • ${filme.classificacao}`;
+        document.getElementById("modal-sinopse").textContent = filme.sinopse;
+        document.getElementById("link-assistir").href = filme.assistir;
+        document.getElementById("link-trailer").href = filme.trailer;
+        document.getElementById("modal").style.display = "flex";
+      }
+
+      function fecharModal() {
+        document.getElementById("modal").style.display = "none";
+      }
+
+      function scrollCarrossel(botao, direcao) {
+        const container = botao.parentElement.querySelector(".carrossel");
+        const larguraItem = container.querySelector(".filme").offsetWidth + 16; 
+        container.scrollBy({
+          left: larguraItem * direcao,
+          behavior: "smooth",
+        });
+      }
+
+      function gerarFilmes(sectionSelector, filmes) {
+        const container = document.querySelector(
+          sectionSelector + " .carrossel"
+        );
+        filmes.forEach((filme) => {
+          const div = document.createElement("div");
+          div.className = "filme";
+          div.innerHTML = `
+      <img src="${filme.imagem}" alt="${
+            filme.titulo
+          }" onclick='abrirModal(${JSON.stringify(filme)})' />
+      <div class="filme-info">
+        <strong>${filme.titulo}</strong><br/>
+        ${filme.ano} • ${filme.classificacao}
+      </div>`;
+          container.appendChild(div);
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        gerarFilmes("section:nth-of-type(2)", filmesLancamento);
+        gerarFilmes("section:nth-of-type(3)", filmesOscar);
+      });
+    </script>
+  </body>
 </html>
