@@ -102,14 +102,17 @@
       </div>
     </section>
 
-    <!-- Modal -->
     <div id="modal" class="modal">
       <div class="modal-content">
         <span class="close" onclick="fecharModal()">&times;</span>
         <img id="modal-img" src="" alt="Capa do Filme" />
         <h2 id="modal-titulo"></h2>
         <p id="modal-info"></p>
+        <p id="modal-episodios"></p>
+        <p id="modal-diretor"></p>
+        <p id="modal-atores"></p>
         <p id="modal-sinopse"></p>
+        <a id="modal-premio" href="#"></a>
         <div class="botoes">
           <a id="link-assistir" href="#" target="_blank">🎬 Assistir</a>
           <a id="link-trailer" href="#" target="_blank">📺 Ver trailer</a>
@@ -120,127 +123,102 @@
     <footer>&copy; 2025 Cineverse. Todos os direitos reservados.</footer>
 
     <script>
-      const destaques = [
+      const filmesLancamento = [
         {
-          titulo: "Duna: Parte 2",
+          titulo: "Oppenheimer",
+          ano: 2023,
+          classificacao: "16 anos",
+          sinopse: "A história do criador da bomba atômica.",
           imagem:
-            "https://ingresso-a.akamaihd.net/prd/img/movie/duna-parte-2/04a173f7-6d58-49d3-91de-20f6a07e9513.webp",
-          link: "#",
+            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
+          imagemModal:
+            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
+          diretor: "juninho pinto",
+          atores: "a, b, c, d",
+          episodios: "4 temporadas de 25 episódios",
+          premios: "https://www.youtube.com/watch?v=uYPbbksJxIg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
         },
         {
           titulo: "Oppenheimer",
-          imagem:
-            "https://www.thebanner.org/sites/default/files/styles/article_detail_header/public/2023-08/MM-1207%20Oppenheimer.jpg?itok=0U-jOPJC",
-          link: "#",
-        },
-        {
-          titulo: "Tudo em Todo Lugar ao Mesmo Tempo",
-          imagem:
-            "https://resenhandosonhos.com/wp-content/uploads/2023/01/tudo-em-todo-o-lugar-ao-mesmo-tempo-capa-920x530.png",
-          link: "#",
-        },
-      ];
-      const filmesLancamento = [
-        {
-          titulo: "Duna: Parte 2",
-          ano: 2024,
-          classificacao: "14 anos",
-          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
-          imagem:
-            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
-        },
-        {
-          titulo: "Duna: Parte 2",
-          ano: 2024,
-          classificacao: "14 anos",
-          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
-          imagem:
-            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
-        },
-        {
-          titulo: "Duna: Parte 2",
-          ano: 2024,
-          classificacao: "14 anos",
-          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
-          imagem:
-            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
-        },
-        {
-          titulo: "Duna: Parte 2",
-          ano: 2024,
-          classificacao: "14 anos",
-          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
-          imagem:
-            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
-        },
-        {
-          titulo: "Duna: Parte 2",
-          ano: 2024,
-          classificacao: "14 anos",
-          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
-          imagem:
-            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
-        },
-        {
-          titulo: "Duna: Parte 2",
-          ano: 2024,
-          classificacao: "14 anos",
-          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
-          imagem:
-            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
-        },
-        {
-          titulo: "Barbie",
           ano: 2023,
-          classificacao: "10 anos",
-          sinopse:
-            "Barbie embarca em uma jornada de autodescoberta no mundo real.",
+          classificacao: "16 anos",
+          sinopse: "A história do criador da bomba atômica.",
           imagem:
-            "https://upload.wikimedia.org/wikipedia/pt/8/82/Barbie_%282023%29.jpg",
+            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
+          imagemModal:
+            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
+          diretor: "juninho pinto",
+          atores: "a, b, c, d",
+          episodios: "4 temporadas de 25 episódios",
+          premios: "https://www.youtube.com/watch?v=uYPbbksJxIg",
           assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=pBk4NYhWNMM",
+          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
         },
         {
-          titulo: "Avatar 2",
-          ano: 2022,
-          classificacao: "12 anos",
-          sinopse: "Jake Sully vive com sua nova família e enfrenta ameaças.",
-          imagem:
-            "https://br.web.img3.acsta.net/pictures/22/05/09/16/16/3197518.jpg",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=d9MyW72ELq0",
-        },
-        {
-          titulo: "Wonka",
+          titulo: "Oppenheimer",
           ano: 2023,
-          classificacao: "Livre",
-          sinopse: "A origem do excêntrico Willy Wonka e sua primeira fábrica.",
+          classificacao: "16 anos",
+          sinopse: "A história do criador da bomba atômica.",
           imagem:
-            "https://m.media-amazon.com/images/I/81mxun+6pEL._AC_UF894,1000_QL80_.jpg",
+            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
+          imagemModal:
+            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
+          diretor: "juninho pinto",
+          atores: "a, b, c, d",
+          episodios: "4 temporadas de 25 episódios",
+          premios: "https://www.youtube.com/watch?v=uYPbbksJxIg",
           assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=otNh9bTjXWg",
+          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
         },
         {
-          titulo: "Godzilla e Kong",
-          ano: 2024,
-          classificacao: "12 anos",
-          sinopse: "Os dois titãs unem forças contra uma nova ameaça.",
+          titulo: "Oppenheimer",
+          ano: 2023,
+          classificacao: "16 anos",
+          sinopse: "A história do criador da bomba atômica.",
           imagem:
-            "https://br.web.img2.acsta.net/pictures/24/02/14/17/29/5748268.jpg",
+            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
+          imagemModal:
+            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
+          diretor: "juninho pinto",
+          atores: "a, b, c, d",
+          episodios: "4 temporadas de 25 episódios",
+          premios: "https://www.youtube.com/watch?v=uYPbbksJxIg",
           assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=qqrpMRDuPfc",
+          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
+        },
+        {
+          titulo: "Oppenheimer",
+          ano: 2023,
+          classificacao: "16 anos",
+          sinopse: "A história do criador da bomba atômica.",
+          imagem:
+            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
+          imagemModal:
+            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
+          diretor: "juninho pinto",
+          atores: "a, b, c, d",
+          episodios: "4 temporadas de 25 episódios",
+          premios: "https://www.youtube.com/watch?v=uYPbbksJxIg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
+        },
+        {
+          titulo: "Oppenheimer",
+          ano: 2023,
+          classificacao: "16 anos",
+          sinopse: "A história do criador da bomba atômica.",
+          imagem:
+            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
+          imagemModal:
+            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
+          diretor: "juninho pinto",
+          atores: "a, b, c, d",
+          episodios: "4 temporadas de 25 episódios",
+          premios: "https://www.youtube.com/watch?v=uYPbbksJxIg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
         },
       ];
       const filmesOscar = [
@@ -251,111 +229,94 @@
           sinopse: "A história do criador da bomba atômica.",
           imagem:
             "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
+          imagemModal:
+            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
+          diretor: "juninho pinto",
+          atores: "a, b, c, d",
+          episodios: "4 temporadas de 25 episódios",
+          premios: "https://www.youtube.com/watch?v=uYPbbksJxIg",
           assistir: "#",
           trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
         },
         {
-          titulo: "Duna: Parte 2",
-          ano: 2024,
-          classificacao: "14 anos",
-          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
-          imagem:
-            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
-        },
-        {
-          titulo: "Duna: Parte 2",
-          ano: 2024,
-          classificacao: "14 anos",
-          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
-          imagem:
-            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
-        },
-        {
-          titulo: "Duna: Parte 2",
-          ano: 2024,
-          classificacao: "14 anos",
-          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
-          imagem:
-            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
-        },
-        {
-          titulo: "Duna: Parte 2",
-          ano: 2024,
-          classificacao: "14 anos",
-          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
-          imagem:
-            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
-        },
-        {
-          titulo: "Duna: Parte 2",
-          ano: 2024,
-          classificacao: "14 anos",
-          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
-          imagem:
-            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
-        },
-        {
-          titulo: "Duna: Parte 2",
-          ano: 2024,
-          classificacao: "14 anos",
-          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
-          imagem:
-            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
-        },
-        {
-          titulo: "Duna: Parte 2",
-          ano: 2024,
-          classificacao: "14 anos",
-          sinopse: "Paul Atreides se une aos Fremen para vingar sua família.",
-          imagem:
-            "https://m.media-amazon.com/images/M/MV5BNzk5MTE4YTUtNGU2My00MTYxLWE5NGItODk4YWFkOWYyMjA5XkEyXkFqcGc@._V1_.jpg",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=nqWZqQXk_AA",
-        },
-        {
-          titulo: "Tudo em Todo Lugar",
-          ano: 2022,
-          classificacao: "14 anos",
-          sinopse:
-            "Uma mulher é jogada em um multiverso caótico para salvar tudo.",
-          imagem:
-            "https://m.media-amazon.com/images/I/91-UbEIOgeL._AC_UF1000,1000_QL80_.jpg",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=wxN1T1uxQ2g",
-        },
-        {
-          titulo: "Parasita",
-          ano: 2019,
+          titulo: "Oppenheimer",
+          ano: 2023,
           classificacao: "16 anos",
-          sinopse:
-            "Uma crítica social em forma de suspense sobre desigualdade.",
+          sinopse: "A história do criador da bomba atômica.",
           imagem:
-            "https://upload.wikimedia.org/wikipedia/pt/4/49/Parasite_2019_poster.jpg",
+            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
+          imagemModal:
+            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
+          diretor: "juninho pinto",
+          atores: "a, b, c, d",
+          episodios: "4 temporadas de 25 episódios",
+          premios: "https://www.youtube.com/watch?v=uYPbbksJxIg",
           assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=5xH0HfJHsaY",
+          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
         },
         {
-          titulo: "Green Book",
-          ano: 2018,
-          classificacao: "12 anos",
-          sinopse:
-            "A improvável amizade entre um motorista e um pianista negro.",
+          titulo: "Oppenheimer",
+          ano: 2023,
+          classificacao: "16 anos",
+          sinopse: "A história do criador da bomba atômica.",
           imagem:
-            "https://upload.wikimedia.org/wikipedia/pt/thumb/5/5e/Green_Book_%28filme%29.png/250px-Green_Book_%28filme%29.png",
+            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
+          imagemModal:
+            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
+          diretor: "juninho pinto",
+          atores: "a, b, c, d",
+          episodios: "4 temporadas de 25 episódios",
+          premios: "https://www.youtube.com/watch?v=uYPbbksJxIg",
           assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=QkZxoko_HC0",
+          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
+        },
+        {
+          titulo: "Oppenheimer",
+          ano: 2023,
+          classificacao: "16 anos",
+          sinopse: "A história do criador da bomba atômica.",
+          imagem:
+            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
+          imagemModal:
+            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
+          diretor: "juninho pinto",
+          atores: "a, b, c, d",
+          episodios: "4 temporadas de 25 episódios",
+          premios: "https://www.youtube.com/watch?v=uYPbbksJxIg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
+        },
+        {
+          titulo: "Oppenheimer",
+          ano: 2023,
+          classificacao: "16 anos",
+          sinopse: "A história do criador da bomba atômica.",
+          imagem:
+            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
+          imagemModal:
+            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
+          diretor: "juninho pinto",
+          atores: "a, b, c, d",
+          episodios: "4 temporadas de 25 episódios",
+          premios: "https://www.youtube.com/watch?v=uYPbbksJxIg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
+        },
+        {
+          titulo: "Oppenheimer",
+          ano: 2023,
+          classificacao: "16 anos",
+          sinopse: "A história do criador da bomba atômica.",
+          imagem:
+            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
+          imagemModal:
+            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
+          diretor: "juninho pinto",
+          atores: "a, b, c, d",
+          episodios: "4 temporadas de 25 episódios",
+          premios: "https://www.youtube.com/watch?v=uYPbbksJxIg",
+          assistir: "#",
+          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
         },
       ];
 
@@ -374,12 +335,23 @@
       });
 
       function abrirModal(filme) {
-        document.getElementById("modal-img").src = filme.imagem;
+        document.getElementById("modal-img").src = filme.imagemModal;
         document.getElementById("modal-titulo").textContent = filme.titulo;
         document.getElementById(
           "modal-info"
         ).textContent = `${filme.ano} • ${filme.classificacao}`;
-        document.getElementById("modal-sinopse").textContent = filme.sinopse;
+        document.getElementById("modal-diretor").textContent =
+          "Diretor: " + filme.diretor;
+        document.getElementById("modal-atores").textContent =
+          "Atores Principais: " + filme.atores;
+        document.getElementById("modal-sinopse").textContent =
+          "Sinopse: " + filme.sinopse;
+        if (filme.premios !== "") {
+          document.getElementById("modal-premio").textContent =
+            "Premios e indicações";
+          document.getElementById("modal-premio").href = filme.premios;
+        }
+        document.getElementById("modal-episodios").textContent = filme.episodios;
         document.getElementById("link-assistir").href = filme.assistir;
         document.getElementById("link-trailer").href = filme.trailer;
         document.getElementById("modal").style.display = "flex";
