@@ -186,7 +186,7 @@ main {
   color: #ff9999;
 }
 
-/* Slider */
+
 .slider {
   position: relative;
   height: 70vh;
@@ -229,15 +229,38 @@ main {
   border-radius: 4px;
 }
 
-section {
-  margin-top: 40px;
-  padding: 0 40px;
-}
+select {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 10px;
+      margin-top: 2%;
+      margin-left: 20%;
+      margin-right: 20%;
+      margin-bottom: 20px;
+    }
+    section {
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+    .hidden {
+      display: none;
+    }
 
 section h2 {
   margin-bottom: 15px;
   font-size: 1.4em;
 }
+
+select {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    
+    .hidden {
+      display: none;
+    }
 
 .carrossel {
   display: flex;
@@ -412,4 +435,10 @@ footer {
   text-align: center;
   padding: 15px;
   font-size: 0.9em;
+}
+
+.footerAlinhado {
+  position: absolute;
+  bottom: 0;
+  width: 98.37%;
 }

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <title>Cineverse - Cadastro</title>
   <link rel="stylesheet" href="Assets/css/style.css">
 </head>
+
 <body>
   <header>
-      <nav class="header-content">
-        <a href="cineverse.html" class="logo">🎬 Cineverse</a>
-      </nav>
-    </header>
+    <nav class="header-content">
+      <a href="cineverse.html" class="logo">🎬 Cineverse</a>
+    </nav>
+  </header>
 
   <main>
     <div class="login-container">
@@ -19,10 +21,11 @@
       <input type="email" id="email" placeholder="E-mail">
       <input type="password" id="senha" placeholder="Senha">
       <input type="password" id="confirmarSenha" placeholder="Confirmar senha">
-      
+
       <button onclick="fazerCadastro()">Cadastrar</button>
-      <button onclick="window.location.href='index.html'" style="margin-top: 10px; background-color: #333;">Já tenho uma conta</button>
-      
+      <button onclick="window.location.href='index.html'" style="margin-top: 10px; background-color: #333;">Já tenho uma
+        conta</button>
+
       <p id="mensagemCadastro"></p>
     </div>
   </main>
@@ -53,11 +56,12 @@
 
       mensagem.style.color = "lightgreen";
       mensagem.textContent = "Cadastro realizado com sucesso!";
-      
+
       setTimeout(() => {
         window.location.href = "cineverse.html";
       }, 1000);
     }
   </script>
 </body>
+
 </html>

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <title>Cineverse - Login</title>
   <link rel="stylesheet" href="Assets/css/style.css">
 </head>
+
 <body>
   <header>
-      <nav class="header-content">
-        <a href="cineverse.html" class="logo">🎬 Cineverse</a>
-      </nav>
-    </header>
+    <nav class="header-content">
+      <a href="cineverse.html" class="logo">🎬 Cineverse</a>
+    </nav>
+  </header>
 
   <main>
     <div class="login-container">
@@ -38,15 +40,16 @@
         mensagem.textContent = "Login realizado com sucesso!";
 
         setTimeout(() => {
-        window.location.href = "cineverse.html";
-      }, 1000);
+          window.location.href = "cineverse.html";
+        }, 1000);
       } else {
         mensagem.style.color = "#ffcccc";
         mensagem.textContent = "Nome ou senha incorretos.";
       }
-      
-      
+
+
     }
   </script>
 </body>
+
 </html>

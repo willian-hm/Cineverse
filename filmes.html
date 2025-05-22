@@ -1,825 +1,448 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Filmes | Cineverse</title>
-    <link rel="stylesheet" href="Assets/css/style.css" />
-  </head>
-  <body>
-    <header>
-      <nav class="header-content">
-        <a href="cineverse.html" class="logo">🎬 Cineverse</a>
-        <div class="links">
-          <a href="filmes.html">Filmes</a>
-          <a href="series.html">Séries</a>
-        </div>
-        <div class="usuario">
-          <div class="icone-usuario" onclick="toggleMenu()">
-            <span>👤</span>
-          </div>
-          <div class="menu-suspenso" id="menuSuspenso">
-            <a href="perfil.html">Perfil</a>
-            <a href="config.html">Configurações</a>
-            <a href="index.html">Encerrar sessão</a>
-          </div>
-        </div>
-      </nav>
-    </header>
 
-    <section>
-      <h2>🚀 Ação & Aventura</h2>
-      <div class="carrossel-container">
-        <button class="seta setaEsquerda" onclick="scrollCarrossel(this, -1)">
-          &#10094;
-        </button>
-        <div class="carrossel">
-          
-        </div>
-        <button class="seta setaDireita" onclick="scrollCarrossel(this, 1)">
-          &#10095;
-        </button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filmes | Cineverse</title>
+  <link rel="stylesheet" href="Assets/css/style.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="header-content">
+      <a href="cineverse.html" class="logo">🎬 Cineverse</a>
+      <div class="links">
+        <a href="filmes.html">Filmes</a>
+        <a href="series.html">Séries</a>
       </div>
-    </section>
-
-    <section>
-      <h2>🏆 Comédia</h2>
-      <div class="carrossel-container">
-        <button class="seta setaEsquerda" onclick="scrollCarrossel(this, -1)">
-          &#10094;
-        </button>
-        <div class="carrossel">
-         
+      <div class="usuario">
+        <div class="icone-usuario" onclick="toggleMenu()">
+          <span>👤</span>
         </div>
-        <button class="seta setaDireita" onclick="scrollCarrossel(this, 1)">
-          &#10095;
-        </button>
+        <div class="menu-suspenso" id="menuSuspenso">
+          <a href="perfil.html">Perfil</a>
+          <a href="config.html">Configurações</a>
+          <a href="index.html">Encerrar sessão</a>
+        </div>
       </div>
-    </section>
+    </nav>
+  </header>
 
-    <section>
-      <h2>🏆 Ficção Científica</h2>
-      <div class="carrossel-container">
-        <button class="seta setaEsquerda" onclick="scrollCarrossel(this, -1)">
-          &#10094;
-        </button>
-        <div class="carrossel">
-         
-        </div>
-        <button class="seta setaDireita" onclick="scrollCarrossel(this, 1)">
-          &#10095;
-        </button>
+  <select id="genreSelect">
+    <option value="Todos">Todos</option>
+    <option value="AcaoAventura">Ação & Aventura</option>
+    <option value="Comedia">Comédia</option>
+    <option value="FiccaoCientifica">Ficção Científica</option>
+    <option value="Drama">Drama</option>
+  </select>
+
+  <section class="AcaoAventura">
+    <h2>🗺 Ação & Aventura</h2>
+    <div class="carrossel-container">
+      <button class="seta setaEsquerda" onclick="scrollCarrossel(this, -1)">
+        &#10094;
+      </button>
+      <div class="carrossel">
+
       </div>
-    </section>
+      <button class="seta setaDireita" onclick="scrollCarrossel(this, 1)">
+        &#10095;
+      </button>
+    </div>
+  </section>
 
-    <section>
-      <h2>🏆 Drama</h2>
-      <div class="carrossel-container">
-        <button class="seta setaEsquerda" onclick="scrollCarrossel(this, -1)">
-          &#10094;
-        </button>
-        <div class="carrossel">
-         
-        </div>
-        <button class="seta setaDireita" onclick="scrollCarrossel(this, 1)">
-          &#10095;
-        </button>
+  <section class="FiccaoCientifica">
+    <h2>🥼 Ficção Científica</h2>
+    <div class="carrossel-container">
+      <button class="seta setaEsquerda" onclick="scrollCarrossel(this, -1)">
+        &#10094;
+      </button>
+      <div class="carrossel">
+
       </div>
-    </section>
+      <button class="seta setaDireita" onclick="scrollCarrossel(this, 1)">
+        &#10095;
+      </button>
+    </div>
+  </section>
 
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="fecharModal()">&times;</span>
-        <img id="modal-img" src="" alt="Capa do Filme" />
-        <h2 id="modal-titulo"></h2>
-        <p id="modal-info"></p>
-        <p id="modal-diretor"></p>
-        <p id="modal-atores"></p>
-        <p id="modal-sinopse"></p>
-        <a id="modal-premio" href="#"></a>
-        <div class="botoes">
-          <a id="link-assistir" href="#" target="_blank">🎬 Assistir</a>
-          <a id="link-trailer" href="#" target="_blank">📺 Ver trailer</a>
-        </div>
+  <section class="Drama">
+    <h2>😭 Drama</h2>
+    <div class="carrossel-container">
+      <button class="seta setaEsquerda" onclick="scrollCarrossel(this, -1)">
+        &#10094;
+      </button>
+      <div class="carrossel">
+
+      </div>
+      <button class="seta setaDireita" onclick="scrollCarrossel(this, 1)">
+        &#10095;
+      </button>
+    </div>
+  </section>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="fecharModal()">&times;</span>
+      <img id="modal-img" src="" alt="Capa do Filme" />
+      <h2 id="modal-titulo"></h2>
+      <p id="modal-info"></p>
+      <p id="modal-diretor"></p>
+      <p id="modal-atores"></p>
+      <p id="modal-sinopse"></p>
+      <a id="modal-premio" href="#"></a>
+      <div class="botoes">
+        <a id="link-trailer" href="#" target="_blank">📺 Ver trailer</a>
       </div>
     </div>
+  </div>
 
-    <footer>&copy; 2025 Cineverse. Todos os direitos reservados.</footer>
+  <footer id="footer">&copy; 2025 Cineverse. Todos os direitos reservados.</footer>
 
-    <script>
-      const filmesAcao = [
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-      ];
-      const filmesComedia = [
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-      ];
-      const filmesFiccao = [
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-      ];
-      const filmesDrama = [
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-        {
-          titulo: "Oppenheimer",
-          ano: 2023,
-          classificacao: "16 anos",
-          sinopse: "A história do criador da bomba atômica.",
-          imagem:
-            "https://br.web.img2.acsta.net/pictures/23/05/08/10/29/0695770.jpg",
-          imagemModal:
-            "https://aventurasnahistoria.com.br/media/uploads/hard_news/oppenheimer_poster.jpg",
-          diretor: "juninho pinto",
-          atores: "a, b, c, d",
-          premios: "",
-          assistir: "#",
-          trailer: "https://www.youtube.com/watch?v=uYPbbksJxIg",
-        },
-      ];
+  <script>
+    const select = document.getElementById('genreSelect');
+    const sections = document.querySelectorAll('section');
+    const footer = document.getElementById('footer')
 
-      function toggleMenu() {
-        const menu = document.getElementById("menuSuspenso");
-        menu.style.display = menu.style.display === "block" ? "none" : "block";
-      }
+    select.addEventListener('change', () => {
+      const selectedGenre = select.value;
 
-      window.addEventListener("click", function (event) {
-        const menu = document.getElementById("menuSuspenso");
-        const icon = document.querySelector(".icone-usuario");
-
-        if (!icon.contains(event.target) && !menu.contains(event.target)) {
-          menu.style.display = "none";
+      sections.forEach(section => {
+        if (selectedGenre === 'Todos') {
+          section.classList.remove('hidden');
+        } else {
+          if (section.classList.contains(selectedGenre)) {
+            section.classList.remove('hidden');
+          } else {
+            section.classList.add('hidden');
+          }
         }
       });
 
-      function abrirModal(filme) {
-        document.getElementById("modal-img").src = filme.imagemModal;
-        document.getElementById("modal-titulo").textContent = filme.titulo;
-        document.getElementById(
-          "modal-info"
-        ).textContent = `${filme.ano} • ${filme.classificacao}`;
-        document.getElementById("modal-diretor").textContent =
-          "Diretor: " + filme.diretor;
-        document.getElementById("modal-atores").textContent =
-          "Atores Principais: " + filme.atores;
-        document.getElementById("modal-sinopse").textContent =
-          "Sinopse: " + filme.sinopse;
-        if (filme.premios !== "") {
-          document.getElementById("modal-premio").textContent =
-            "Premios e indicações";
-          document.getElementById("modal-premio").href = filme.premios;
-        }
-        document.getElementById("link-assistir").href = filme.assistir;
-        document.getElementById("link-trailer").href = filme.trailer;
-        document.getElementById("modal").style.display = "flex";
+      if (selectedGenre !== "Todos") {
+        footer.classList.add("footerAlinhado");
+      } else {
+        footer.classList.remove("footerAlinhado");
       }
+    });
 
-      function fecharModal() {
-        document.getElementById("modal").style.display = "none";
+    const filmesAcao = [
+      {
+        titulo: "Indiana Jones e os Caçadores da Arca Perdida",
+        ano: 1981,
+        classificacao: "12 anos",
+        sinopse: "O arqueólogo Indiana Jones precisa impedir que nazistas consigam a Arca da Aliança.",
+        imagem: "https://m.media-amazon.com/images/I/81P+xe8cbnL._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/4/4b/Raiders_of_the_Lost_Ark.jpg",
+        diretor: "Steven Spielberg",
+        atores: "Harrison Ford, Karen Allen, Paul Freeman",
+        episodios: "Filme único",
+        premios: "https://www.imdb.com/title/tt0082971/awards",
+        trailer: "https://www.youtube.com/watch?v=XkkzKHCx154"
+      },
+      {
+        titulo: "Mad Max: Estrada da Fúria",
+        ano: 2015,
+        classificacao: "16 anos",
+        sinopse: "Num mundo pós-apocalíptico, Max se junta a Furiosa para fugir de um tirano e seu exército.",
+        imagem: "https://m.media-amazon.com/images/I/81ZFYZ7vJjL._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/2/23/Mad_Max_Fury_Road.jpg",
+        diretor: "George Miller",
+        atores: "Tom Hardy, Charlize Theron, Nicholas Hoult",
+        episodios: "Filme único",
+        premios: "https://www.imdb.com/title/tt1392190/awards",
+        trailer: "https://www.youtube.com/watch?v=hEJnMQG9ev8"
+      },
+      {
+        titulo: "Gladiador",
+        ano: 2000,
+        classificacao: "16 anos",
+        sinopse: "Um general romano busca vingança contra o imperador que matou sua família.",
+        imagem: "https://m.media-amazon.com/images/I/71wFy66Aq0L._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/8/8d/Gladiator_ver1.jpg",
+        diretor: "Ridley Scott",
+        atores: "Russell Crowe, Joaquin Phoenix, Connie Nielsen",
+        episodios: "Filme único",
+        premios: "https://www.imdb.com/title/tt0172495/awards",
+        trailer: "https://www.youtube.com/watch?v=owK1qxDselE"
+      },
+      {
+        titulo: "Missão: Impossível - Efeito Fallout",
+        ano: 2018,
+        classificacao: "14 anos",
+        sinopse: "Ethan Hunt e sua equipe correm contra o tempo para evitar uma catástrofe global.",
+        imagem: "https://m.media-amazon.com/images/I/81YlKTJ31SL._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/0/0a/Mission_Impossible_Fallout_poster.jpg",
+        diretor: "Christopher McQuarrie",
+        atores: "Tom Cruise, Henry Cavill, Rebecca Ferguson",
+        episodios: "6º filme da franquia",
+        premios: "https://www.imdb.com/title/tt4912910/awards",
+        trailer: "https://www.youtube.com/watch?v=wb49-oV0F78"
+      },
+      {
+        titulo: "John Wick 4: Baba Yaga",
+        ano: 2023,
+        classificacao: "18 anos",
+        sinopse: "John Wick enfrenta a Alta Cúpula para conquistar sua liberdade definitiva.",
+        imagem: "https://m.media-amazon.com/images/I/81fAECEV4pL._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/5/56/John_Wick_4.jpg",
+        diretor: "Chad Stahelski",
+        atores: "Keanu Reeves, Donnie Yen, Bill Skarsgård",
+        episodios: "4º filme da franquia",
+        premios: "https://www.imdb.com/title/tt10366206/awards",
+        trailer: "https://www.youtube.com/watch?v=qEVUtrk8_B4"
+      },
+      {
+        titulo: "O Senhor dos Anéis: O Retorno do Rei",
+        ano: 2003,
+        classificacao: "14 anos",
+        sinopse: "Frodo e Sam chegam à Montanha da Perdição para destruir o Um Anel.",
+        imagem: "https://m.media-amazon.com/images/I/81eb8UEhoQL._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/8/87/LOTR3.jpg",
+        diretor: "Peter Jackson",
+        atores: "Elijah Wood, Ian McKellen, Viggo Mortensen",
+        episodios: "3º filme da trilogia",
+        premios: "https://www.imdb.com/title/tt0167260/awards",
+        trailer: "https://www.youtube.com/watch?v=r5X-hFf6Bwo"
       }
+    ];
 
-      function scrollCarrossel(botao, direcao) {
-        const container = botao.parentElement.querySelector(".carrossel");
-        const larguraItem = container.querySelector(".filme").offsetWidth + 16; 
-        container.scrollBy({
-          left: larguraItem * direcao,
-          behavior: "smooth",
-        });
+    const filmesFiccao = [
+      {
+        titulo: "Interestelar",
+        ano: 2014,
+        classificacao: "12 anos",
+        sinopse: "Um grupo de astronautas viaja por um buraco de minhoca em busca de um novo lar para a humanidade.",
+        imagem: "https://m.media-amazon.com/images/I/71n58uB9S1L._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/b/bc/Interstellar_Filme.png",
+        diretor: "Christopher Nolan",
+        atores: "Matthew McConaughey, Anne Hathaway, Jessica Chastain",
+        episodios: "Filme único",
+        premios: "https://www.imdb.com/title/tt0816692/awards",
+        trailer: "https://www.youtube.com/watch?v=zSWdZVtXT7E"
+      },
+      {
+        titulo: "Blade Runner 2049",
+        ano: 2017,
+        classificacao: "16 anos",
+        sinopse: "Um jovem blade runner descobre um segredo que pode mudar o futuro da sociedade e o leva a buscar Rick Deckard.",
+        imagem: "https://m.media-amazon.com/images/I/81s6DUyQCZL._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/2/22/Blade_Runner_2049.png",
+        diretor: "Denis Villeneuve",
+        atores: "Ryan Gosling, Harrison Ford, Ana de Armas",
+        episodios: "Filme único",
+        premios: "https://www.imdb.com/title/tt1856101/awards",
+        trailer: "https://www.youtube.com/watch?v=gCcx85zbxz4"
+      },
+      {
+        titulo: "Matrix",
+        ano: 1999,
+        classificacao: "14 anos",
+        sinopse: "Um hacker descobre que a realidade como conhecemos é uma simulação controlada por máquinas.",
+        imagem: "https://m.media-amazon.com/images/I/71Iu-Ct4j5L._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/c/c1/The_Matrix_Poster.jpg",
+        diretor: "Lana e Lilly Wachowski",
+        atores: "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss",
+        episodios: "1º de 4 filmes",
+        premios: "https://www.imdb.com/title/tt0133093/awards",
+        trailer: "https://www.youtube.com/watch?v=vKQi3bBA1y8"
+      },
+      {
+        titulo: "Duna",
+        ano: 2021,
+        classificacao: "14 anos",
+        sinopse: "O jovem Paul Atreides embarca em uma jornada perigosa para proteger o futuro de seu povo em um planeta desértico.",
+        imagem: "https://m.media-amazon.com/images/I/91tYd6HWuCL._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/9/9b/Dune_2020.jpg",
+        diretor: "Denis Villeneuve",
+        atores: "Timothée Chalamet, Zendaya, Rebecca Ferguson",
+        episodios: "1º de 2 partes (até agora)",
+        premios: "https://www.imdb.com/title/tt1160419/awards",
+        trailer: "https://www.youtube.com/watch?v=n9xhJrPXop4"
+      },
+      {
+        titulo: "Gravidade",
+        ano: 2013,
+        classificacao: "12 anos",
+        sinopse: "Dois astronautas ficam presos no espaço após um acidente e precisam lutar para sobreviver.",
+        imagem: "https://m.media-amazon.com/images/I/61+fLG3gNsL._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/b/bf/Gravity_Poster.jpg",
+        diretor: "Alfonso Cuarón",
+        atores: "Sandra Bullock, George Clooney",
+        episodios: "Filme único",
+        premios: "https://www.imdb.com/title/tt1454468/awards",
+        trailer: "https://www.youtube.com/watch?v=OiTiKOy59o4"
+      },
+      {
+        titulo: "O Predador",
+        ano: 1987,
+        classificacao: "18 anos",
+        sinopse: "Um grupo de soldados é caçado na selva por uma criatura alienígena mortal.",
+        imagem: "https://m.media-amazon.com/images/I/71vhfVqlhUL._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/9/95/Predator_Movie.jpg",
+        diretor: "John McTiernan",
+        atores: "Arnold Schwarzenegger, Carl Weathers, Bill Duke",
+        episodios: "1º de uma franquia",
+        premios: "https://www.imdb.com/title/tt0093773/awards",
+        trailer: "https://www.youtube.com/watch?v=X2hBYGwKh3I"
       }
+    ];
 
-      function gerarFilmes(sectionSelector, filmes) {
-        const container = document.querySelector(
-          sectionSelector + " .carrossel"
-        );
-        filmes.forEach((filme) => {
-          const div = document.createElement("div");
-          div.className = "filme";
-          div.innerHTML = `
-      <img src="${filme.imagem}" alt="${
-            filme.titulo
+    const filmesDrama = [
+      {
+        titulo: "A Espera de um Milagre",
+        ano: 1999,
+        classificacao: "16 anos",
+        sinopse: "Um guarda de prisão desenvolve uma conexão especial com um prisioneiro com poderes misteriosos.",
+        imagem: "https://m.media-amazon.com/images/I/81wXlZTpQQS._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/0/06/The_Green_Mile_%28filme%29.jpg",
+        diretor: "Frank Darabont",
+        atores: "Tom Hanks, Michael Clarke Duncan",
+        episodios: "Filme único",
+        premios: "https://www.imdb.com/title/tt0120689/awards",
+        trailer: "https://www.youtube.com/watch?v=Ki4haFrqSrw"
+      },
+      {
+        titulo: "Clube da Luta",
+        ano: 1999,
+        classificacao: "18 anos",
+        sinopse: "Um insatisfeito trabalhador de escritório encontra um vendedor de sabão excêntrico e formam um clube secreto de luta.",
+        imagem: "https://m.media-amazon.com/images/I/91wJ1UHzB3L._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/8/8a/Fight_Club_poster.jpg",
+        diretor: "David Fincher",
+        atores: "Brad Pitt, Edward Norton, Helena Bonham Carter",
+        episodios: "Filme único",
+        premios: "https://www.imdb.com/title/tt0137523/awards",
+        trailer: "https://www.youtube.com/watch?v=SUXWAEX2jlg"
+      },
+      {
+        titulo: "Forrest Gump",
+        ano: 1994,
+        classificacao: "12 anos",
+        sinopse: "A comovente trajetória de Forrest, um homem simples que vive momentos marcantes da história americana.",
+        imagem: "https://m.media-amazon.com/images/I/81wFtm4-5cL._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/6/67/ForrestGumpPoster.jpg",
+        diretor: "Robert Zemeckis",
+        atores: "Tom Hanks, Robin Wright",
+        episodios: "Filme único",
+        premios: "https://www.imdb.com/title/tt0109830/awards",
+        trailer: "https://www.youtube.com/watch?v=bLvqoHBptjg"
+      },
+      {
+        titulo: "Os Infiltrados",
+        ano: 2006,
+        classificacao: "18 anos",
+        sinopse: "Um policial disfarçado e um informante da máfia tentam descobrir a identidade um do outro.",
+        imagem: "https://m.media-amazon.com/images/I/91ZgGSqtEtL._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/0/0c/The_Departed_%28poster%29.jpg",
+        diretor: "Martin Scorsese",
+        atores: "Leonardo DiCaprio, Matt Damon, Jack Nicholson",
+        episodios: "Filme único",
+        premios: "https://www.imdb.com/title/tt0407887/awards",
+        trailer: "https://www.youtube.com/watch?v=iojhqm0JTW4"
+      },
+      {
+        titulo: "O Pianista",
+        ano: 2002,
+        classificacao: "16 anos",
+        sinopse: "Durante a Segunda Guerra, um pianista judeu luta para sobreviver à ocupação nazista em Varsóvia.",
+        imagem: "https://m.media-amazon.com/images/I/71ZyxIGCvwL._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/e/e5/The_Pianist_poster.jpg",
+        diretor: "Roman Polanski",
+        atores: "Adrien Brody, Thomas Kretschmann",
+        episodios: "Filme único",
+        premios: "https://www.imdb.com/title/tt0253474/awards",
+        trailer: "https://www.youtube.com/watch?v=BFwGqLa_oAo"
+      },
+      {
+        titulo: "12 Anos de Escravidão",
+        ano: 2013,
+        classificacao: "16 anos",
+        sinopse: "Um homem negro livre é sequestrado e vendido como escravo no sul dos EUA antes da Guerra Civil.",
+        imagem: "https://m.media-amazon.com/images/I/81w9rGKvwhL._AC_UF894,1000_QL80_.jpg",
+        imagemModal: "https://upload.wikimedia.org/wikipedia/pt/b/bc/12_Years_a_Slave_poster.jpg",
+        diretor: "Steve McQueen",
+        atores: "Chiwetel Ejiofor, Michael Fassbender, Lupita Nyong'o",
+        episodios: "Filme único",
+        premios: "https://www.imdb.com/title/tt2024544/awards",
+        trailer: "https://www.youtube.com/watch?v=vUQNjfhlREk"
+      }
+    ];
+
+
+    function toggleMenu() {
+      const menu = document.getElementById("menuSuspenso");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    window.addEventListener("click", function (event) {
+      const menu = document.getElementById("menuSuspenso");
+      const icon = document.querySelector(".icone-usuario");
+
+      if (!icon.contains(event.target) && !menu.contains(event.target)) {
+        menu.style.display = "none";
+      }
+    });
+
+    function abrirModal(filme) {
+      document.getElementById("modal-img").src = filme.imagemModal;
+      document.getElementById("modal-titulo").textContent = filme.titulo;
+      document.getElementById(
+        "modal-info"
+      ).textContent = `${filme.ano} • ${filme.classificacao}`;
+      document.getElementById("modal-diretor").textContent =
+        "Diretor: " + filme.diretor;
+      document.getElementById("modal-atores").textContent =
+        "Atores Principais: " + filme.atores;
+      document.getElementById("modal-sinopse").textContent =
+        "Sinopse: " + filme.sinopse;
+      if (filme.premios !== "") {
+        document.getElementById("modal-premio").textContent =
+          "Premios e indicações";
+        document.getElementById("modal-premio").href = filme.premios;
+      }
+      document.getElementById("link-trailer").href = filme.trailer;
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function fecharModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    function scrollCarrossel(botao, direcao) {
+      const container = botao.parentElement.querySelector(".carrossel");
+      const larguraItem = container.querySelector(".filme").offsetWidth + 16;
+      container.scrollBy({
+        left: larguraItem * direcao,
+        behavior: "smooth",
+      });
+    }
+
+    function gerarFilmes(sectionSelector, filmes) {
+      const container = document.querySelector(
+        sectionSelector + " .carrossel"
+      );
+      filmes.forEach((filme) => {
+        const div = document.createElement("div");
+        div.className = "filme";
+        div.innerHTML = `
+      <img src="${filme.imagem}" alt="${filme.titulo
           }" onclick='abrirModal(${JSON.stringify(filme)})' />
       <div class="filme-info">
         <strong>${filme.titulo}</strong><br/>
         ${filme.ano} • ${filme.classificacao}
       </div>`;
-          container.appendChild(div);
-        });
-      }
-
-      document.addEventListener("DOMContentLoaded", () => {
-        gerarFilmes("section:nth-of-type(1)", filmesAcao);
-        gerarFilmes("section:nth-of-type(2)", filmesComedia);
-        gerarFilmes("section:nth-of-type(3)", filmesFiccao);
-        gerarFilmes("section:nth-of-type(4)", filmesDrama);
+        container.appendChild(div);
       });
-    </script>
-  </body>
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      gerarFilmes("section:nth-of-type(1)", filmesAcao);
+      gerarFilmes("section:nth-of-type(2)", filmesFiccao);
+      gerarFilmes("section:nth-of-type(3)", filmesDrama);
+    });
+  </script>
+</body>
+
 </html>
