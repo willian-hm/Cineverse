@@ -27,23 +27,14 @@
       </nav>
     </header>
 
-    <!-- Slider de Destaque -->
-    <section id="slider" class="slider">
-      <div class="slider-content">
-        <h1 id="slider-title">Duna: Parte 2</h1>
-        <button onclick="window.location.href='#'">Assistir agora</button>
-      </div>
-    </section>
-
-    <!-- Lançamentos -->
     <section>
-      <h2>Genero 1</h2>
+      <h2>🚀 Ação & Aventura</h2>
       <div class="carrossel-container">
         <button class="seta setaEsquerda" onclick="scrollCarrossel(this, -1)">
           &#10094;
         </button>
         <div class="carrossel">
-          <!-- FILMES AQUI -->
+          
         </div>
         <button class="seta setaDireita" onclick="scrollCarrossel(this, 1)">
           &#10095;
@@ -52,13 +43,43 @@
     </section>
     <!-- Oscar -->
     <section>
-      <h2>Genero 2</h2>
+      <h2>🏆 Comédia</h2>
       <div class="carrossel-container">
         <button class="seta setaEsquerda" onclick="scrollCarrossel(this, -1)">
           &#10094;
         </button>
         <div class="carrossel">
-          <!-- Seus filmes aqui -->
+         
+        </div>
+        <button class="seta setaDireita" onclick="scrollCarrossel(this, 1)">
+          &#10095;
+        </button>
+      </div>
+    </section>
+
+    <section>
+      <h2>🏆 Ficção Científica</h2>
+      <div class="carrossel-container">
+        <button class="seta setaEsquerda" onclick="scrollCarrossel(this, -1)">
+          &#10094;
+        </button>
+        <div class="carrossel">
+         
+        </div>
+        <button class="seta setaDireita" onclick="scrollCarrossel(this, 1)">
+          &#10095;
+        </button>
+      </div>
+    </section>
+
+    <section>
+      <h2>🏆 Drama</h2>
+      <div class="carrossel-container">
+        <button class="seta setaEsquerda" onclick="scrollCarrossel(this, -1)">
+          &#10094;
+        </button>
+        <div class="carrossel">
+         
         </div>
         <button class="seta setaDireita" onclick="scrollCarrossel(this, 1)">
           &#10095;
@@ -323,22 +344,6 @@
         },
       ];
 
-      const slider = document.getElementById("slider");
-      const sliderTitle = document.getElementById("slider-title");
-      let slideAtual = 0;
-
-      slider.style.backgroundImage = `url('${destaques[0].imagem}')`;
-      sliderTitle.textContent = destaques[0].titulo;
-
-      function trocarSlide() {
-        slideAtual = (slideAtual + 1) % destaques.length;
-        const destaque = destaques[slideAtual];
-        slider.style.backgroundImage = `url('${destaque.imagem}')`;
-        sliderTitle.textContent = destaque.titulo;
-      }
-
-      setInterval(trocarSlide, 5000); 
-
       function toggleMenu() {
         const menu = document.getElementById("menuSuspenso");
         menu.style.display = menu.style.display === "block" ? "none" : "block";
@@ -398,8 +403,10 @@
       }
 
       document.addEventListener("DOMContentLoaded", () => {
-        gerarFilmes("section:nth-of-type(2)", filmesLancamento);
-        gerarFilmes("section:nth-of-type(3)", filmesOscar);
+        gerarFilmes("section:nth-of-type(1)", filmesLancamento);
+        gerarFilmes("section:nth-of-type(2)", filmesOscar);
+        gerarFilmes("section:nth-of-type(3)", filmesLancamento);
+        gerarFilmes("section:nth-of-type(4)", filmesOscar);
       });
     </script>
   </body>
