@@ -36,14 +36,16 @@
       if (nome === "usuario" && senha === "1234") {
         mensagem.style.color = "lightgreen";
         mensagem.textContent = "Login realizado com sucesso!";
+
+        setTimeout(() => {
+        window.location.href = "cineverse.html";
+      }, 1000);
       } else {
         mensagem.style.color = "#ffcccc";
         mensagem.textContent = "Nome ou senha incorretos.";
       }
       
-      setTimeout(() => {
-        window.location.href = "cineverse.html";
-      }, 1000);
+      
     }
   </script>
 </body>
